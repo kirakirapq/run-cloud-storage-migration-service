@@ -1,12 +1,12 @@
-# FROM alpine
-FROM python:3.8-alpine3.12
+FROM alpine
+# FROM python:3.8-alpine3.12
 
 
 
 RUN apk --update-cache add \
-    # python3 \
-    # python3-dev \
-    # py3-pip \
+    python3 \
+    python3-dev \
+    py3-pip \
     gcc \
     g++ \
     curl \
@@ -20,7 +20,7 @@ RUN apk update  \
     && gcloud components install kubectl
 
 COPY ./requirements.txt /tmp/requirements.txt
-# RUN pip3 install --upgrade pip
+RUN pip install --upgrade pip
 RUN pip install -r /tmp/requirements.txt
 
 RUN apk --no-cache add tzdata && \
