@@ -23,9 +23,9 @@ RUN apk update  \
 
 # RUN wget https://www.piwheels.org/simple/grpcio/${GRCPIO}#sha256=${HASH}
 
-COPY requirements.txt /tmp/
 RUN pip install --upgrade pip
 # RUN pip install ${GRCPIO}
+COPY requirements.txt /tmp/requirements.txt
 RUN ls  -la /tmp && pip install -r /tmp/requirements.txt
 
 RUN apk --no-cache add tzdata && \
