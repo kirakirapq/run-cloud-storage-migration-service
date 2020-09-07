@@ -11,23 +11,17 @@ RUN apk --update-cache add \
     gcc \
     g++ \
     curl \
-    bash \
-    wget
+    bash
 
 RUN curl -sSL https://sdk.cloud.google.com | bash
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 RUN apk update  \
     && apk upgrade
-    # && gcloud components install kubectl
-
-# RUN wget https://www.piwheels.org/simple/grpcio/${GRCPIO}#sha256=${HASH}
 
 COPY ./requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip
-# RUN pip install ${GRCPIO}
-
-RUN ls  -la /tmp && pip install -r /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
 
 RUN apk --no-cache add tzdata && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
@@ -35,7 +29,7 @@ RUN apk --no-cache add tzdata && \
 
 RUN mkdir -p /src
 
-COPY ./app.py /src/apppy
+COPY ./app.py /src/app.py
 
 WORKDIR /src
 
