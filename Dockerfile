@@ -26,7 +26,7 @@ RUN apk update  \
 COPY ./requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip
 # RUN pip install ${GRCPIO}
-RUN ls -la && pip install -r /tmp/requirements.txt
+RUN ls  -la /tmp && pip install -r /tmp/requirements.txt
 
 RUN apk --no-cache add tzdata && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
