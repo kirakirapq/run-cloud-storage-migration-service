@@ -1,3 +1,1 @@
-wheel
-grpcio
 google-cloud-pubsub
