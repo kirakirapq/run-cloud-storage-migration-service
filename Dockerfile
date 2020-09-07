@@ -23,10 +23,10 @@ RUN apk update  \
 
 # RUN wget https://www.piwheels.org/simple/grpcio/${GRCPIO}#sha256=${HASH}
 
-COPY ./requirements.txt /tmp/requirements.txt
+COPY ./requirements.txt /requirements.txt
 RUN pip install --upgrade pip
 # RUN pip install ${GRCPIO}
-RUN ls  -la /tmp && pip install -r /tmp/requirements.txt
+RUN ls  -la / && pip install -r /requirements.txt
 
 RUN apk --no-cache add tzdata && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
