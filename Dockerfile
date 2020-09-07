@@ -12,7 +12,7 @@ RUN apk --update-cache add \
     g++ \
     curl \
     bash \
-    √
+    wget
 
 RUN curl -sSL https://sdk.cloud.google.com | bash
 ENV PATH $PATH:/root/google-cloud-sdk/bin
