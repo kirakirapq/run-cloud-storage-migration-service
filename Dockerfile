@@ -18,14 +18,15 @@ RUN curl -sSL https://sdk.cloud.google.com | bash
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 RUN apk update  \
-    && apk upgrade  \
+    && apk upgrade
     # && gcloud components install kubectl
 
 # RUN wget https://www.piwheels.org/simple/grpcio/${GRCPIO}#sha256=${HASH}
 
+COPY ./requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip
 # RUN pip install ${GRCPIO}
-COPY requirements.txt /tmp/requirements.txt
+
 RUN ls  -la /tmp && pip install -r /tmp/requirements.txt
 
 RUN apk --no-cache add tzdata && \
