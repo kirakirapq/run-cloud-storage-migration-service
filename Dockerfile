@@ -17,7 +17,9 @@ ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 RUN apk update  \
     && apk upgrade  \
-    && gcloud components install kubectl
+    # && gcloud components install kubectl
+
+RUN pip list
 
 COPY ./requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip
