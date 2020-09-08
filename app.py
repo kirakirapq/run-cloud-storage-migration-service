@@ -7,10 +7,8 @@ import time
 import traceback
 
 
-DESTINATION_BUCKET_NAME = os.getenv(
-    'DESTINATION_BUCKET_NAME',
-    'destination bucket name')
-PROJECT_ID = os.getenv('PROJECT_ID', 'your project name')
+DESTINATION_BUCKET_NAME = os.getenv('DESTINATION_BUCKET_NAME')
+PROJECT_ID = os.getenv('PROJECT_ID')
 SUBSCRIPTION_ID = os.getenv('SUBSCRIPTION_ID')
 OBJECT_FINALIZE = os.getenv('OBJECT_FINALIZE', 'OBJECT_FINALIZE')
 
