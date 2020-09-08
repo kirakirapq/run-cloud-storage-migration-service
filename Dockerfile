@@ -28,4 +28,4 @@ COPY ./app.py /src/app.py
 
 WORKDIR /src
 
-ENTRYPOINT ['python', 'app.py']
+ENTRYPOINT ["python", "app.py"]
