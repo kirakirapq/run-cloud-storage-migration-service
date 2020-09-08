@@ -123,4 +123,5 @@ def poll_notifications(project, subscription_name):
 
 
 if __name__ == "__main__":
+    print("start service.")
     poll_notifications(PROJECT_ID, SUBSCRIPTION_ID)
