@@ -1,5 +1,4 @@
 from google.cloud import pubsub_v1
-import argparse
 import json
 import os
 import subprocess
@@ -124,15 +123,4 @@ def poll_notifications(project, subscription_name):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
-    parser.add_argument(
-        "project", help="The ID of the project that owns the subscription"
-    )
-    parser.add_argument(
-        "subscription", help="The ID of the Pub/Sub subscription"
-    )
-    args = parser.parse_args()
-    poll_notifications(PROJECT_ID, args.SUBSCRIPTION_ID)
+    poll_notifications(PROJECT_ID, SUBSCRIPTION_ID)
