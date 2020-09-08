@@ -1,15 +1,18 @@
 from google.cloud import pubsub_v1
 import argparse
 import json
+import os
 import subprocess
 import time
 import traceback
 
 
-DESTINATION_BUCKET_NAME = "first-prj-bucket"
-PROJECT_ID = "minarai-gcp"
-SUBSCRIPTION_ID = "gcs_notification_sub"
-OBJECT_FINALIZE = "OBJECT_FINALIZE"
+DESTINATION_BUCKET_NAME = os.getenv(
+    'DESTINATION_BUCKET_NAME',
+    'destination bucket name')
+PROJECT_ID = os.getenv('PROJECT_ID', 'your project name')
+SUBSCRIPTION_ID = os.getenv('SUBSCRIPTION_ID')
+OBJECT_FINALIZE = os.getenv('OBJECT_FINALIZE', 'OBJECT_FINALIZE')
 
 
 def copyObjects(bucket_name: str, file_name: str, destination_bucket_name: str) -> dict:
